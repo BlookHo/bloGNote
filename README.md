@@ -1,0 +1,2 @@
+# bloGNote
+Simple Rails blog
