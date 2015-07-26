@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
   resources :authors
@@ -10,6 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :author_sessions, only: [ :new, :create, :destroy ]
+  resources :subscribers
 
   get 'author_sessions'  => 'author_sessions#create' # log - in
   get 'login'  => 'author_sessions#new'
