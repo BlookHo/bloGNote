@@ -21,15 +21,35 @@ class SubscribersController < ApplicationController
   def edit
   end
 
+  # @note: Create Subscriber from Author
+  def create_author_subscriber
+      notice_message = 'Congratulations Author! You become a Subscriber of our BloGNote successfully.'
+      # raise params.inspect
+      @subscriber = Subscriber.new({name: current_user.name, email: current_user.email})
+      logger.info "In create_author_subscriber:  @subscriber = #{@subscriber.inspect} "
+      respond_to do |format|
+        if @subscriber.save
+          logger.info "In subscribers create 2:  @subscriber.id = #{@subscriber.id.inspect} "
+          format.html { redirect_to articles_path, notice: notice_message }
+        else
+          format.html { render :new }
+          format.json { render json: @subscriber.errors, status: :unprocessable_entity }
+        end
+      end
+
+  end
+
+  # @note: Create Subscriber from Visitor
   # POST /subscribers
   # POST /subscribers.json
   def create
+    notice_message = 'Congratulations visitor! You become a Subscriber of our BloGNote successfully.'
     @subscriber = Subscriber.new(subscriber_params)
 
     respond_to do |format|
       if @subscriber.save
-        format.html { redirect_to @subscriber, notice: 'Subscriber was successfully created.' }
-        format.json { render :show, status: :created, location: @subscriber }
+        logger.info "In subscribers create:  @subscriber.id = #{@subscriber.id.inspect} "
+        format.html { redirect_to articles_path, notice: notice_message }
       else
         format.html { render :new }
         format.json { render json: @subscriber.errors, status: :unprocessable_entity }
@@ -69,6 +89,9 @@ class SubscribersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subscriber_params
-      params.require(:subscriber).permit(:name, :email)
+      logged_in? ? params.permit(:name, :email) : params.require(:subscriber).permit(:name, :email)
     end
+
+
+
 end

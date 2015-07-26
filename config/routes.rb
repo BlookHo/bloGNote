@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   get 'login'  => 'author_sessions#new'
   get 'logout' => 'author_sessions#destroy'
 
+  post 'create_author_subscriber' => 'subscribers#create_author_subscriber'
+  get 'create_author_subscriber' => 'subscribers#create_author_subscriber'
 
 
   get 'welcome'  => 'welcome#index'

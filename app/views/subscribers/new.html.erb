@@ -1,5 +1,8 @@
-<h1>New Subscriber</h1>
+<% unless logged_in? %>
+    <h1>New Subscriber</h1>
 
-<%= render 'form' %>
+    <%= render 'form' %>
+    <%= link_to 'Back', subscribers_path %>
 
-<%= link_to 'Back', subscribers_path %>
+<% end %>
+

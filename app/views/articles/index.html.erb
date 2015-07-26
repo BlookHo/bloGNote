@@ -2,6 +2,14 @@
 
 <h1>Listing Articles</h1>
 
+<% if logged_in? %>
+    <%= link_to 'Subscribe', create_author_subscriber_path, class: [:sbtn, :btn]  %>
+
+
+<% else %>
+    <%= link_to 'Subscribe', new_subscriber_path , class: [:sbtn, :btn]  %>
+<% end %>
+
 <!--<table class="table table-hover">-->
 <table class="table table-hover">
 

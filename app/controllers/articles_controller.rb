@@ -11,7 +11,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     @articles = Article.all
-
+  @current_user = current_user
 
 
   end
