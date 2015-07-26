@@ -25,11 +25,12 @@ default: &default
   reaping_frequency: 30
   username: <%= Rails.application.secrets[:database][:username] %>
   password: <%= Rails.application.secrets[:database][:password] %>
-  port: 5432
+#  port: 5432
   pool: 5
   timeout: 5000
 
 development: *default
+
 
 #default: &default
 #  adapter: postgresql

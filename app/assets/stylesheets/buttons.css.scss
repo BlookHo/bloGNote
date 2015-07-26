@@ -1,0 +1,132 @@
+.bttn{
+    height:34px;
+    line-height:34px;
+    padding:0 21px;
+    font-size:12px;
+    font-weight: 700;
+    text-decoration:none;
+    display:inline-block;
+    color:#fff  !important;
+    background-color:grey;
+    border:none;
+    outline:none;
+    cursor:pointer;
+    border-radius:4px!important;
+
+    -webkit-appearance: none;
+    -moz-appearance:none;
+
+
+    &.small{
+      height:28px;
+      line-height:28px;
+      padding:0 12px;
+    }
+
+    &:hover{text-decoration:none;}
+
+    &.silver{
+      background-color:#bdc3c7;
+      color:#fff;
+      &:hover{ background-color:#95a5a6; }
+    }
+
+    &.green{
+      background-color:#2ecc71;
+      color:#fff;
+      &:hover{ background-color:#27ae60; }
+    }
+
+    &.red{
+      background-color:#e74c3c;
+      color:#fff;
+      &:hover{ background-color:#c0392b; }
+    }
+
+
+    &.pink{
+      background-color:#e02a94;
+      color:#fff;
+      &:hover{ background-color:#f62eba; }
+    }
+
+    &.blue{
+      background-color:#1a57e5;
+      color:#fff;
+      &:hover{ background-color:#4385f9; }
+    }
+
+    &:disabled, &.disabled{
+      background-color:#bdc3c7;
+      opacity:0.4;
+      &:hover{ background-color:#bdc3c7; }
+    }
+
+
+
+}
+
+
+
+// OLD BUTTONS
+.btn,
+input[type=submit].btn{
+  display:inline-block;
+  text-decoration:none;
+  font-weight:bold;
+
+  border:none;
+  outline:none;
+  cursor:pointer;
+
+  // default
+  height:34px;
+  line-height:34px;
+  border-radius:21px;
+  font-size:14px;
+  padding:0 21px;
+  color:#fff !important;
+  background-color:grey;
+
+  &:hover{
+    background-color:#000;
+  }
+
+
+  // disabled button
+  &:disabled{
+    pointer-events: none;
+    opacity:0.5;
+  }
+
+  &.large{
+    height:60px;
+    padding:0 32px;
+    border-radius:30px;
+    line-height:60px;
+    font-size:18px;
+  }
+
+
+  &.blue{
+    background-color:#0088ff;
+    &:hover{
+      background-color:#0069c0;
+    }
+  }
+
+
+  &.green{
+    background-color:green;
+    &:hover{
+      background-color:green;
+    }
+  }
+
+  &.red{
+    background-color:red;
+    &:hover{
+      background-color:#b10000;
+    }
+  }
+}

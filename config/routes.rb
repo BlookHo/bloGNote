@@ -1,9 +1,39 @@
 Rails.application.routes.draw do
+
+
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+
+  resources :authors
+
+  resources :articles do
+    resources :comments
+  end
+
+  resources :author_sessions, only: [ :new, :create, :destroy ]
+
+  get 'author_sessions'  => 'author_sessions#create' # log - in
+  get 'login'  => 'author_sessions#new'
+  get 'logout' => 'author_sessions#destroy'
+
+
+
+  get 'welcome'  => 'welcome#index'
+  get 'welcome/register'
+  get 'welcome/sign_in'
+  get 'welcome/sign_out'
+  get 'welcome/subscribe'
+  get 'welcome/see_articles'
+
+  get 'articles/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  # Root
+  ##################################################
+  root to:  'welcome#index'
+
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

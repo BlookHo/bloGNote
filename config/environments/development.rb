@@ -1,4 +1,8 @@
-Rails.application.configure do
+# encoding: utf-8
+Encoding.default_external = "UTF-8"
+
+
+BloGNote::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded on
@@ -16,6 +20,36 @@ Rails.application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
+
+
+  config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { :host => 'localhost', port: '3000' }
+  config.action_mailer.delivery_method = :smtp
+
+  #####################################################################
+  config.x.action_mailer.blog_mail = 'blookho@gmail.com'
+  config.x.action_mailer.blog_mail_password = '1219dmkv1219'
+  #####################################################################
+
+  config.action_mailer.smtp_settings =
+      {
+          # :port => 25, # 25 -Yandex; 1025 - mailcatcher
+          :port                 => 587, #  # 587, 465, 25
+          :enable_starttls_auto => true,
+          :address              => "smtp.gmail.com",       ## CHANGE for Gmail
+          # :address => "smtp.yandex.ru",     ## for Yandex
+          :domain               => 'localhost:3000',
+          :user_name            => Rails.configuration.x.action_mailer.blog_mail,
+          :password             => Rails.configuration.x.action_mailer.blog_mail_password,
+          :authentication       => 'plain',
+          :openssl_verify_mode  => 'none' # ?
+      }
+
+  # For Mailcatcher
+  #config.action_mailer.smtp_settings = { :address => "localhost", :domain => 'localhost:3003', :port => 1025 }
+  #config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
 
@@ -29,12 +63,17 @@ Rails.application.configure do
 
   # Asset digests allow you to set far-future HTTP expiration dates on all assets,
   # yet still be able to expire them through the digest params.
+  # Expands the lines which load the assets
   config.assets.digest = true
 
   # Adds additional error checking when serving assets at runtime.
   # Checks for improperly declared sprockets dependencies.
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
+
+  # SpeedUp js / css compiling in development
+  config.assets.js_compressor = false
+
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true

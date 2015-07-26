@@ -1,0 +1,33 @@
+body{
+  font-family: 'Open Sans', sans-serif;
+  font-size:14px;
+}
+
+html > body{height:100%}
+
+
+.flash{
+  margin-bottom:10px;
+  &.alert{color:red;}
+  &.warning{color:#f5a439;}
+}
+
+
+.left{
+  text-align:left !important;
+}
+
+.grey{
+  color:grey;
+}
+.italic{
+  font-style:italic;
+}
+
+.green{
+  color:green;
+}
+
+.red{
+  color:red;
+}
