@@ -8,12 +8,12 @@ The plan is to use many fantastic modern features, such as reactive front end, v
 -------------------------------------------------------
 ### To config mailer:
 ------------------------
-1. Put line to file mailer_config.rb
-  BLOG_EMAIL = 'your_blog_gmail_box'
+. Put line to file mailer_config.rb
+    BLOG_EMAIL = 'your_blog_gmail_box'
 --------------------------------------------
 ### NOTE: your_blog_gmail_box - should be gmail.com
 --------------------------------------------------------
-2. Put two lines to file development.rb
+. Put two lines to file development.rb
   config.x.action_mailer.blog_mail = 'your_blog_gmail_box'
   config.x.action_mailer.blog_mail_password = 'your_blog_gmail_password'
 -------------------------------------------------------
@@ -25,10 +25,10 @@ The plan is to use many fantastic modern features, such as reactive front end, v
 
 #### Goto Login
 #### Enter:
-------------------------------------------------------------
+-----------------------------------------------------------
 - email: admin@admin.ad
 - password: admin
-----------------------------------------------------------------------------
+-----------------------------------------------------------
 #### Submit -> you will enter Admin panel
-#### There - press Home to return to welcome page.
+#### In Admin panel - press Home to return to Welcome Blog page.
 
