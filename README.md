@@ -31,5 +31,5 @@ Put two lines to file development.rb
 - password: admin
 
 > Submit -> you will enter Admin panel
-> In Admin panel - press Home to return to Welcome Blog page.
+In Admin panel - press Home to return to Welcome Blog page.
 
