@@ -24,7 +24,7 @@ Put two lines to file development.rb
 ## To enter Admin panel
 -----------------------------------
 
-Goto Login. ## Enter following:
+Goto Login and enter following:
 
 - email: admin@admin.ad
 - password: admin
