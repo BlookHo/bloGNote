@@ -44,13 +44,16 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     subscriber = article_params[:author_id]
-    logger.info "In Article.create:  subscriber = #{subscriber}"
+    logger.info "In Article.create 1:  subscriber = #{subscriber},  @article = #{@article}"
+    # send_emails   # Send noti emails
 
-    # Send welcome email
-   SubscriberMailer.new_article_email(subscriber).deliver!#_now
 
     respond_to do |format|
       if @article.save
+
+        logger.info "In Article.create 2:  subscriber = #{subscriber},  @article.id = #{@article.id}"
+        send_emails   # Send noti emails
+
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
       else
@@ -59,6 +62,19 @@ class ArticlesController < ApplicationController
       end
     end
   end
+
+
+  # @note: Send emails to all subscribers
+  def send_emails
+
+    Subscriber.subscribers_emails.each do |one_email|
+      SubscriberMailer.new_article_email(one_email).deliver!#_now
+    end
+
+
+  end
+
+
 
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json

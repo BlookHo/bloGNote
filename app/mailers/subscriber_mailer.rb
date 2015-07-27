@@ -3,15 +3,17 @@ class SubscriberMailer < ActionMailer::Base
   default from: BLOG_EMAIL
 
 
-  def new_article_email(subscriber, password = '1111')
-    # @name = user.name
-
-    # @email = Subscriber.find(subscriber_id).email
-    @email = 'zoneiva@gmail.com'
+  def new_article_email(one_email, password = '1111')
     @password = password
-    logger.info "In new_article_email:  @email = #{@email}, subscriber = #{subscriber} " #
+    @subscriber_name = Subscriber.where(email: one_email)[0].name
+    # @email_test = 'zoneiva@gmail.com'
+    logger.info "In new_article_email:  one_email = #{one_email} ,  @subscriber_name = #{@subscriber_name} " #
+    @current_time = Time.now
 
-    mail(to: @email, subject: 'Hi! BloGNote informs You! New article created! See:  Unsubscribe: ')
+    @link_to_new_article = "@link_to_new_article"
+    @link_to_unsubscribe = "@link_to_unsubscribe"
+
+    mail(to: one_email, subject: "Message from BloGNote: New article created!" )
   end
 
 

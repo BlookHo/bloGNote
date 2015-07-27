@@ -1,9 +1,15 @@
-<h2>bloGNote informs!</h2>
+<div class='container'>
 
-<p>
-  <strong>New article created:</strong>
-  <%=  -%>
+  <h2>Dear Subscriber <%= @subscriber_name %>! bloGNote informs You:</h2>
+  <p> <strong>New article created:</strong> </p>
+  <p> @link_to_new_article: <%= @link_to_new_article %></p>
+  <p> See new article: <%= link_to 'Go', class: [:sbtn, :btn]  %> </p>
+
   <br/>
-  <strong>Unsubscribe:</strong>
-  <%=  -%>
-</p>
+  <br/>
+  <p> @link_to_unsubscribe: <%= @link_to_unsubscribe %></p>
+  <p> To unsubscribe from bloGNote emails: <%= link_to 'Unsubscribe', class: [:sbtn, :btn]  %> </p>
+
+    <p id="notice"> Delivering time: <%= @current_time %></p>
+
+</div>
