@@ -14,7 +14,7 @@ Put line to file *mailer_config.rb*
 
 #### NOTE: your_blog_gmail_box - should be gmail.com
 
-Put two lines to file development.rb
+Put two lines to file *development.rb*
 - config.x.action_mailer.blog_mail = 'your_blog_gmail_box'
 - config.x.action_mailer.blog_mail_password = 'your_blog_gmail_password'
 
