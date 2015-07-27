@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<!--<script src="jquery-2.1.1.js" language="javascript"></script>-->
+
 <h1>Listing Articles</h1>
 
 <% if logged_in? %>
@@ -8,26 +10,25 @@
     <%= link_to 'Subscribe', new_subscriber_path , class: [:sbtn, :btn]  %>
 <% end %>
 
+<table class="table-hover">
 <!--<table class="table table-hover">-->
-<table class="table table-hover">
-
   <thead>
     <tr>
       <th>Author</th>
       <th>Title</th>
       <th>Body</th>
       <!--<th colspan="1"></th>-->
-      <!--<th></th>-->
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @articles.each do |article| %>
-      <tr data-href="<%= article_path(article)%>">
+      <tr data-link="<%= article_path(article)%>">
         <td><%= Author.find(article.author_id).name %></td>
         <td><%= article.title %></td>
         <td><%= article.body.slice(0,100) %></td>
-        <!--<td><%=link_to 'Show', article_path(article)  %></td>-->
+        <td><%=link_to 'Show', article_path(article)  %></td>
 
         <!--<tr <%=  link_to article_path(article), :remote => true %>>-->
         <!--<td><%= article.author_id %></td>-->

@@ -6,7 +6,6 @@ class AuthorsController < ApplicationController
     # unless Author.count == 0 || current_user
     if current_user
       redirect_to root_path
-      return false
     end
   end
 
@@ -18,19 +17,12 @@ class AuthorsController < ApplicationController
   # GET /authors.json
   def index
     @authors = Author.all
-      logger.info "In Authors.index:  @authors = #{@authors} "
-    author_5 = Author.find(5).name
-    logger.info "In Authors.index:  author_5.name = #{author_5} "
-
   end
 
   # GET /authors/1
   # GET /authors/1.json
   def show
-    logger.info "In Authors.show:  @author.name = #{@author.name} "
-
-    # @author = Author.find(params[:id])
-
+    # logger.info "In Authors.show:  @author.name = #{@author.name} "
   end
 
   # GET /authors/new
@@ -46,12 +38,10 @@ class AuthorsController < ApplicationController
   # POST /authors.json
   def create
     @author = Author.new(author_params)
-      logger.info "In Author.create:  author_params = #{author_params}, @author = #{@author}"
 
     respond_to do |format|
       if @author.save!
         format.html { redirect_to @author, notice: 'Author was successfully created.' }
-        # format.html { redirect_to login_path, notice: 'Author was successfully created.' }
         format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }

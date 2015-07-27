@@ -2,32 +2,22 @@
 //# All this logic will automatically be available in application.js.
 //# You can use CoffeeScript in this file: http://coffeescript.org/
 
-//jQuery(function($) {
-//$("td[data-link]").click(function() {
-//    console.log(" this.dataset.link = " + this.dataset.link );
-//    //setTimeout("window.location.href='<%= home_path %>';",2000);
-//
-//window.location.href = this.dataset.link
-//});
-//});
+//<script src="jquery-2.1.1.js" language="javascript">    </script>
 
-$("tr[data-link]").click(function() {
-        console.log(" this = " + this );
+jQuery.noConflict();
+(function( $ ) {
+    $(document).ready(function(){
+            console.log( "document loaded" );
+        //$("tr").click(function() {
+        //    $(this).closest("tr").siblings().removeClass("highlighted");
+        //    $(this).toggleClass("highlighted");
+        //}).href
+        $(function(){
+            $("tr[data-link]").click(function() {
+                console.log(" this = " + $(this) );
+                window.location = $(this).data("link")
+            });
+        })
+    });
+})( jQuery );
 
-    window.location = $(this).data("link")
-});
-
-//$(document).on("click", "#table-id tr", function() {
-//    var link  = $(this).data("href");
-//    console.log(" this = " + this );
-//    console.log(" link = " + link );
-//
-//    $.ajax({
-//        url: link,
-//        type: "GET"
-//    });
-//});
-
-//jQuery ->
-//$('#datatable_products').dataTable
-//sPaginationType: "bootstrap"

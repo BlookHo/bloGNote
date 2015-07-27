@@ -4,7 +4,7 @@ require 'rouge/plugins/redcarpet'
 class MarkdownService
 
   class HTMLWithRouge < Redcarpet::Render::HTML
-    include Rouge::Plugins::Redcarpet # yep, that's it.
+    include Rouge::Plugins::Redcarpet
   end
 
   def initialize

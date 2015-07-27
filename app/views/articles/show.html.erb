@@ -17,7 +17,7 @@
   <%= @article.content.html_safe %>
 
 </h3>
-<%= link_to 'Back', articles_path, class: [:sbtn, :btn] %> |
+<%= link_to 'Back to all articles', articles_path, class: [:sbtn, :btn] %> |
 
 <% if @author_name == @current_user_name %>
   <%= link_to 'Edit', edit_article_path(@article), class: [:sbtn, :btn] %> |
