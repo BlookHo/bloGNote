@@ -26,10 +26,10 @@ BLOG_EMAIL = 'your_blog_gmail_box'
 
 ## To enter Admin panel
 
-### Goto Login
-### Enter:
+#### Goto Login
+#### Enter:
 - email: admin@admin.ad
 - password: admin
-### Submit -> you will enter Admin panel/
-### There - press Home to return to welcome page.
+#### Submit -> you will enter Admin panel
+#### There - press Home to return to welcome page.
 
