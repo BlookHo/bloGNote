@@ -34,7 +34,7 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.author_id = current_user.id if current_user
-    subscriber = article_params[:author_id]
+    # subscriber = article_params[:author_id]
 
     respond_to do |format|
       if @article.save

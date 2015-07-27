@@ -19,16 +19,16 @@ BLOG_EMAIL = 'your_blog_gmail_box'
 
 ## Sending Emails - New Articles creation notifications
 -------------------------------------------------------
-### NOTE: When Subscribe - put REAL email address, please.
-          In other case this subscriber wil not receive emails.
+## NOTE: When Subscribe - put REAL email address, please.
+## In other case this subscriber wil not receive emails.
 -----------------------------------------------------------
 
 ## To enter Admin panel
 
-Goto Login
-Enter:
-email: admin@ad.ad
-password: admin
-Submit -> you will enter Admin panel/
-There - press Home to return to welcome page.
+### Goto Login
+### Enter:
+- email: admin@ad.ad
+- password: admin
+### Submit -> you will enter Admin panel/
+### There - press Home to return to welcome page.
 
