@@ -6,6 +6,7 @@ The plan is to use many fantastic modern features, such as reactive front end, v
 
 ## Sending Emails - New Articles creation notifications
 --------------------------------
+
 ### To config mailer:
 
 Put line to file mailer_config.rb
@@ -22,12 +23,13 @@ Put two lines to file development.rb
 
 ## To enter Admin panel
 -----------------------------------
+
 #### Goto Login
 #### Enter:
 
 - email: admin@admin.ad
 - password: admin
 
-#### Submit -> you will enter Admin panel
-#### In Admin panel - press Home to return to Welcome Blog page.
+> Submit -> you will enter Admin panel
+> In Admin panel - press Home to return to Welcome Blog page.
 
