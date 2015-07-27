@@ -9,7 +9,7 @@ The plan is to use many fantastic modern features, such as reactive front end, v
 
 ### To config mailer:
 
-Put line to file mailer_config.rb
+Put line to file > mailer_config.rb
 - BLOG_EMAIL = 'your_blog_gmail_box'
 
 #### NOTE: your_blog_gmail_box - should be gmail.com
