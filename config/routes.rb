@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 
   post 'create_author_subscriber' => 'subscribers#create_author_subscriber'
   get 'create_author_subscriber' => 'subscribers#create_author_subscriber'
+  get 'unsubscribe' => 'subscribers#unsubscribe'
 
 
   get 'welcome'  => 'welcome#index'

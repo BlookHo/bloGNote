@@ -19,15 +19,11 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
-    # logger.info "Show:  @author_id = #{@author_id.inspect}"
     @comment = Comment.new
     @comment.article_id = @article.id
-
+    @current_user_name = current_user.name
     @author_name = Author.find(@article.author_id).name
-    logger.info "Show:  @author_name = #{@author_name.inspect}"
-    #
-    # @author_name = Author.find(params[:one_item].author_id).name
-
+    # logger.info "Show:  @author_name = #{@author_name.inspect}"
   end
 
   # GET /articles/new
@@ -65,12 +61,12 @@ class ArticlesController < ApplicationController
 
 
   # @note: Send emails to all subscribers
+  # To put in Sideqic
   def send_emails(article_id)
 
     Subscriber.subscribers_emails.each do |one_email|
       SubscriberMailer.new_article_email(one_email, article_id).deliver!#_now
     end
-
 
   end
 

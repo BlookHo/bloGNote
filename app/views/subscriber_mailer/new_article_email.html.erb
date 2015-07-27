@@ -2,14 +2,9 @@
 
   <h2>Dear Subscriber <%= @subscriber_name %>! bloGNote informs You:</h2>
   <p> <strong>New article created:</strong> </p>
-  <!--<p> @link_to_new_article: <%= @link_to_new_article %></p>-->
-  <p> To read new article: <%= link_to 'Go', "#{@link_to_new_article}", class: [:sbtn, :btn]  %> </p>
-
+  <p> To read new article: <%= link_to 'Read', "#{@link_to_new_article}"  %> </p>
   <br/>
-  <br/>
-  <p> @link_to_unsubscribe: <%= @link_to_unsubscribe %></p>
-  <p> To unsubscribe from bloGNote emails: <%= link_to 'Unsubscribe', subscribers_url, class: [:sbtn, :btn]  %> </p>
-
-    <p id="notice"> Delivering time: <%= @current_time.to_s(:short) %></p>
+  <p> To unsubscribe from bloGNote emails: <%= link_to 'Unsubscribe',"#{@link_to_unsubscribe}" %> </p>
+  <p> Delivering time: <%= @current_time.to_s(:short) %></p>
 
 </div>

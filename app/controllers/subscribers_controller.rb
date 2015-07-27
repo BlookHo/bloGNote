@@ -1,5 +1,5 @@
 class SubscribersController < ApplicationController
-  before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
+  before_action :set_subscriber, only: [:show,  :destroy] #:edit, :update, index
 
   # GET /subscribers
   # GET /subscribers.json
@@ -76,10 +76,20 @@ class SubscribersController < ApplicationController
   def destroy
     @subscriber.destroy
     respond_to do |format|
-      format.html { redirect_to subscribers_url, notice: 'Subscriber was successfully destroyed.' }
+      format.html { redirect_to welcome_path, notice: 'You successfully unsubscribed.' }
       format.json { head :no_content }
     end
   end
+
+
+  # # @note: unsubscribe
+  # def self.unsubscribe
+  #
+  #   subscriber = params[:subscriber]
+  #   subscriber.destroy
+  #
+  # end
+  #
 
   private
     # Use callbacks to share common setup or constraints between actions.

@@ -17,14 +17,17 @@
   <%= @article.content.html_safe %>
 
 </h3>
+<%= link_to 'Back', articles_path, class: [:sbtn, :btn] %> |
 
-<%= link_to 'Edit', edit_article_path(@article), class: [:sbtn, :btn] %>
-<%= link_to 'Back', articles_path, class: [:sbtn, :btn] %>
-<br/>
+<% if @author_name == @current_user_name %>
+
+<%= link_to 'Edit', edit_article_path(@article), class: [:sbtn, :btn] %> |
+
 <br/>
 
 <p>Comments (<%= @article.comments.size %>)</p>
 <%= render partial: 'articles/comment', collection: @article.comments  %>
 <%= render partial: 'comments/form_to_add_comment' %>
 
+<% end %>
 
