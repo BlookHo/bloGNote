@@ -52,7 +52,7 @@ class ArticlesController < ApplicationController
       if @article.save
 
         logger.info "In Article.create 2:  subscriber = #{subscriber},  @article.id = #{@article.id}"
-        send_emails   # Send noti emails
+        send_emails(@article.id)   # Send noti emails
 
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
         format.json { render :show, status: :created, location: @article }
@@ -65,10 +65,10 @@ class ArticlesController < ApplicationController
 
 
   # @note: Send emails to all subscribers
-  def send_emails
+  def send_emails(article_id)
 
     Subscriber.subscribers_emails.each do |one_email|
-      SubscriberMailer.new_article_email(one_email).deliver!#_now
+      SubscriberMailer.new_article_email(one_email, article_id).deliver!#_now
     end
 
 

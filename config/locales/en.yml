@@ -32,3 +32,8 @@ en:
     errors:
       incorrect-captcha-sol: 'Captcha error. Try again!'
 
+#  time:
+#    formats:
+#      short_datetime: %B %d, %Y
+#      long_datetime:  %B %d, %Y, at %r
+#      hammer_datetime: STOP! %B %d, %Y, is HAMMERTIME!

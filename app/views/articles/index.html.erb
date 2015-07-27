@@ -4,8 +4,6 @@
 
 <% if logged_in? %>
     <%= link_to 'Subscribe', create_author_subscriber_path, class: [:sbtn, :btn]  %>
-
-
 <% else %>
     <%= link_to 'Subscribe', new_subscriber_path , class: [:sbtn, :btn]  %>
 <% end %>
