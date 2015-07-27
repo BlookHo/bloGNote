@@ -30,6 +30,5 @@ Put two lines to file development.rb
 - email: admin@admin.ad
 - password: admin
 
-Submit -> you will enter Admin panel
-In Admin panel - press Home to return to Welcome Blog page.
+Submit -> you will enter Admin panel. In Admin panel - press Home to return to Welcome Blog page.
 
