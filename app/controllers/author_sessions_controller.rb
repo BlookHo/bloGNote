@@ -5,7 +5,15 @@ class AuthorSessionsController < ApplicationController
 
   def create
     if login(params[:email], params[:password])
-      redirect_back_or_to(articles_path, notice: 'Logged in successfully.')
+      if params[:email] == 'admin@ad.ad' && params[:password] == 'admin'
+        logger.info "In AuthorSessions.create:  params[:email] = #{params[:email]},  params[:password] = #{params[:password]}"
+
+        redirect_to rails_admin.dashboard_path
+      else
+        redirect_back_or_to(articles_path, notice: 'Logged in successfully.')
+      end  # , notice: 'Logged in ADMIN successfully.')
+    # redirect_back_or_to(articles_path, notice: 'Logged in successfully.')
+
     else
       flash.now.alert = "Login failed."
       render action: :new

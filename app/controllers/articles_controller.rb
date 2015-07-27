@@ -1,19 +1,14 @@
 class ArticlesController < ApplicationController
-  # before_filter :authenticate, :except => [ :index, :show ]
+  before_filter :logged_in?, :except => [ :index, :show ]
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  # set_article is a method which will call always before show, update, edit and destroy.
-
-
-
+  # call always before show, update, edit and destroy.
 
   # GET /articles
   # GET /articles.json
   def index
     @articles = Article.all
-  @current_user = current_user
-
-
+    @current_user = current_user
   end
 
   # GET /articles/1
@@ -21,9 +16,8 @@ class ArticlesController < ApplicationController
   def show
     @comment = Comment.new
     @comment.article_id = @article.id
-    @current_user_name = current_user.name
+    @current_user_name = current_user.name unless current_user == nil
     @author_name = Author.find(@article.author_id).name
-    # logger.info "Show:  @author_name = #{@author_name.inspect}"
   end
 
   # GET /articles/new
@@ -39,15 +33,13 @@ class ArticlesController < ApplicationController
   # POST /articles.json
   def create
     @article = Article.new(article_params)
+    @article.author_id = current_user.id if current_user
     subscriber = article_params[:author_id]
-    logger.info "In Article.create 1:  subscriber = #{subscriber},  @article = #{@article}"
-    # send_emails   # Send noti emails
-
 
     respond_to do |format|
       if @article.save
 
-        logger.info "In Article.create 2:  subscriber = #{subscriber},  @article.id = #{@article.id}"
+        # logger.info "In Article.create 2:  subscriber = #{subscriber},  @article.id = #{@article.id}"
         send_emails(@article.id)   # Send noti emails
 
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -63,24 +55,15 @@ class ArticlesController < ApplicationController
   # @note: Send emails to all subscribers
   # To put in Sideqic
   def send_emails(article_id)
-
     Subscriber.subscribers_emails.each do |one_email|
       SubscriberMailer.new_article_email(one_email, article_id).deliver!#_now
     end
-
   end
-
 
 
   # PATCH/PUT /articles/1
   # PATCH/PUT /articles/1.json
   def update
-
-    # @article = Article.find(params[:id])
-    # @article.update(article_params)
-    #
-    # flash.notice = "Article '#{@article.title}' Updated!"
-
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
@@ -114,16 +97,12 @@ class ArticlesController < ApplicationController
     end
 
 
-  def authenticate
-    authenticate_or_request_with_http_basic do |name, password|
-      name == "admin" && password == "secret"
-    end
-
-
-
-
-  end
-
+  # def authenticate
+  #   authenticate_or_request_with_http_basic do |name, password|
+  #     name == "admin" && password == "secret"
+  #   end
+  # end
+  #
 
 
 

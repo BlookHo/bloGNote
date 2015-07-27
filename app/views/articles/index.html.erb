@@ -43,8 +43,18 @@
 <br>
 <br/>
 
-<%= link_to 'New Article', new_article_path, class: [:sbtn, :btn]  %>
 <%= link_to 'Home page', welcome_path, class: [:sbtn, :btn]  %> |
+<% if logged_in? %>
+    <%= link_to 'New Article', new_article_path, class: [:sbtn, :btn]  %>
+
+    <%= link_to "Logout", logout_path, class: [:sbtn, :btn] %>
+    <br>
+    <%= "Logged in as Author #{current_user.email}" %>
+
+<% else %>
+    <!--Logged out-->
+    <%= link_to "Login", login_path, class: [:sbtn, :btn] %>
+<% end %>
 
 
 

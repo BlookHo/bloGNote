@@ -3,7 +3,17 @@
   <h2>Share your ideas and explore other variants</h2>
   <h2>Our mission - to unite people all over the world</h2>
   <%= link_to'Sign up', new_author_path , class: [:sbtn, :btn] %>
-  <%= link_to 'Sign in', login_path , class: [:sbtn, :btn]  %>
+  <!--<%= link_to 'Sign in', login_path , class: [:sbtn, :btn]  %>-->
+  <% if logged_in? %>
+      <%= link_to "Logout", logout_path, class: [:sbtn, :btn] %>
+      <br>
+      <%= "Logged in as Author #{current_user.email}" %>
+
+  <% else %>
+      <!--Logged out-->
+      <%= link_to "Login", login_path, class: [:sbtn, :btn] %>
+  <% end %>
+
   <%= link_to 'Read all articles', articles_path , class: [:sbtn, :btn]  %>
 
 </div>
