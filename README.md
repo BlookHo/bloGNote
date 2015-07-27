@@ -26,8 +26,8 @@ Put two lines to file *development.rb*
 
 Goto Login and enter following:
 
-- email: admin@admin.ad
-- password: admin
+- email: **admin@admin.ad**
+- password: **admin**
 
 Submit -> you will enter Admin panel. In Admin panel - press Home to return to Welcome Blog page.
 
