@@ -10,7 +10,7 @@ The plan is to use many fantastic modern features, such as reactive front end, v
  ::~/bloGNote$ bundle exec sidekiq
 
  Sidekiq is already installed in this project.
-
+ Ctrl C - to stop Sidekiq in Terminal
 
 ### To config mailer:
 
