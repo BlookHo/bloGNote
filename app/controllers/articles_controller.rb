@@ -48,13 +48,13 @@ class ArticlesController < ApplicationController
   end
 
 
-  # @note: Send emails to all subscribers
-  # To put in Sideqic
+  # @note: Send emails to all subscribers - via Sidekiq
   def send_emails(article_id)
     Subscriber.subscribers_emails.each do |one_email|
-      SubscriberMailer.delay.new_article_email(one_email, article_id)
-
-      # SubscriberMailer.new_article_email(one_email, article_id).deliver!#_now
+      logger.info "In send_emails:  article_id = #{article_id.inspect},
+                  one_email = #{one_email} ,"
+      SubscriberMailer.delay.new_article_email(one_email, article_id) # with Sidekiq
+      # SubscriberMailer.new_article_email(one_email, article_id).deliver!#_now - without Sidekiq
     end
   end
 

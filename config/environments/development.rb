@@ -20,17 +20,12 @@ BloGNote::Application.configure do
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
-
-
   config.action_mailer.default :charset => "utf-8"
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default_url_options = { :host => 'localhost', port: '3000' }
   config.action_mailer.delivery_method = :smtp
 
-  #####################################################################
-  config.x.action_mailer.blog_mail = 'blookho@gmail.com'
-  config.x.action_mailer.blog_mail_password = '1219dmkv1219'
-  #####################################################################
+  puts "In dev.rb:  [email_name] = #{Rails.application.secrets.emails[:dev_email_name].inspect}"
 
   config.action_mailer.smtp_settings =
       {
@@ -40,8 +35,8 @@ BloGNote::Application.configure do
           :address              => "smtp.gmail.com",       ## CHANGE for Gmail
           # :address => "smtp.yandex.ru",     ## for Yandex
           :domain               => 'localhost:3000',
-          :user_name            => Rails.configuration.x.action_mailer.blog_mail,
-          :password             => Rails.configuration.x.action_mailer.blog_mail_password,
+          :user_name            => Rails.application.secrets.emails[:dev_email_name],
+          :password             => Rails.application.secrets.emails[:dev_email_password],
           :authentication       => 'plain',
           :openssl_verify_mode  => 'none' # ?
       }
