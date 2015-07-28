@@ -2,7 +2,6 @@ class ArticlesController < ApplicationController
   before_filter :logged_in?, :except => [ :index, :show ]
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  # call always before show, update, edit and destroy.
 
   # GET /articles
   # GET /articles.json
@@ -34,12 +33,9 @@ class ArticlesController < ApplicationController
   def create
     @article = Article.new(article_params)
     @article.author_id = current_user.id if current_user
-    # subscriber = article_params[:author_id]
 
     respond_to do |format|
       if @article.save
-
-        # logger.info "In Article.create 2:  subscriber = #{subscriber},  @article.id = #{@article.id}"
         send_emails(@article.id)   # Send noti emails
 
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
@@ -95,15 +91,6 @@ class ArticlesController < ApplicationController
     def article_params
       params.require(:article).permit(:author_id, :title, :body)
     end
-
-
-  # def authenticate
-  #   authenticate_or_request_with_http_basic do |name, password|
-  #     name == "admin" && password == "secret"
-  #   end
-  # end
-  #
-
 
 
 
