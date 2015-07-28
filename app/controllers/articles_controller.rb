@@ -52,7 +52,9 @@ class ArticlesController < ApplicationController
   # To put in Sideqic
   def send_emails(article_id)
     Subscriber.subscribers_emails.each do |one_email|
-      SubscriberMailer.new_article_email(one_email, article_id).deliver!#_now
+      SubscriberMailer.delay.new_article_email(one_email, article_id)
+
+      # SubscriberMailer.new_article_email(one_email, article_id).deliver!#_now
     end
   end
 

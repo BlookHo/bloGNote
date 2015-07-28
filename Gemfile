@@ -116,5 +116,8 @@ gem 'rouge'
 # authentification
 gem 'sorcery'
 
+# Asynchronous email delivery
+gem 'sidekiq'
+
 # admin panel
 gem 'rails_admin', '~> 0.6.8'

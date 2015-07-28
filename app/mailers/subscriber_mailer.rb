@@ -2,6 +2,7 @@ class SubscriberMailer < ActionMailer::Base
 
   default from: BLOG_EMAIL
 
+  # self.async = true
 
   def new_article_email(one_email, article_id) #, password = '1111'
     # @password = password
@@ -19,11 +20,11 @@ class SubscriberMailer < ActionMailer::Base
   end
 
 
-  def unsubscribe_mail(user,  password)
-    @name = user.name
-    @email = user.email
-    @password = password
-    mail(to: @email, subject: 'Мы все - родня. Восстановление пароля.')
-  end
+  # def unsubscribe_mail(user,  password)
+  #   @name = user.name
+  #   @email = user.email
+  #   @password = password
+  #   mail(to: @email, subject: 'unsubscribe_mail')
+  # end
 
 end
