@@ -2,7 +2,11 @@
 <%= form_for [ @article, @comment ] do |f| %>
     <p>
       <%= f.label :name, "Your Name" %>
-      <%= f.text_field :name %>
+      <% if @current_user %>
+          <%= f.text_field :name, :value => @current_user_name%>
+      <% else %>
+          <%= f.text_field :name %>
+      <% end %>
     </p>
     <p>
       <%= f.label :body, "Your Comment" %><br/>
