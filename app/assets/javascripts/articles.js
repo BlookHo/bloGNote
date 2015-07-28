@@ -7,14 +7,10 @@
 jQuery.noConflict();
 (function( $ ) {
     $(document).ready(function(){
-            console.log( "document loaded" );
-        //$("tr").click(function() {
-        //    $(this).closest("tr").siblings().removeClass("highlighted");
-        //    $(this).toggleClass("highlighted");
-        //}).href
+        console.log( "document loaded" );
         $(function(){
             $("tr[data-link]").click(function() {
-                console.log(" this = " + $(this) );
+                //console.log(" this = " + $(this) );
                 window.location = $(this).data("link")
             });
         })

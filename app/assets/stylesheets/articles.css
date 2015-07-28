@@ -12,10 +12,10 @@ table{
   border:1px solid #999999;
 }
 
-th {
+thead th {
   font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica,
     sans-serif;
-  color: #F2EDEB;
+  color: #a74a45;
   border-right: 1px solid #C1DAD7;
   border-bottom: 1px solid #C1DAD7;
   border-top: 1px solid #C1DAD7;
@@ -26,12 +26,12 @@ th {
   /*background: #522D25 url(images/bg_header.jpg) no-repeat;*/
 }
 
-tr {
+tbody tr {
   background: #fff;
-  color: #461F1D;
+  color: #4077a4;
 }
 
-tr:hover, tr.alt:hover {
+tbody tr:hover, tbody tr.alt:hover {
   color: #261F1D;
   background-color: #E5C37E;
 }
