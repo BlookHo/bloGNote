@@ -6,7 +6,8 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    # @articles = Article.all
+    @articles = Article.all.page(params[:page]).per(12)
     @current_user = current_user
   end
 

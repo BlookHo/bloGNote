@@ -19,9 +19,22 @@ Put line to file *mailer_config.rb*
 
 #### NOTE: your_blog_gmail_box - should be gmail.com
 
-Put two lines to file *development.rb*
-- config.x.action_mailer.blog_mail = 'your_blog_gmail_box'
-- config.x.action_mailer.blog_mail_password = 'your_blog_gmail_password'
+Create Your own file app/config/secrets.yml.
+Put inthis file following data:
+
+development:
+  database:
+    :host: localhost
+    :name: blognote_development
+    :username: 'you_db_user'
+    :password: 'you_db_password'
+  secret_key_base: 'your own db secret key'
+  emails:
+    :dev_email_name: 'your_blog_gmail_box'
+    :dev_email_password: 'your_blog_gmail_password'
+
+
+Email box 'your_blog_gmail_box' - you will use as host email box of this app on your own machine.
 
 #### NOTE: When Subscribe - put REAL email address, please.In other case this subscriber wil not receive emails.
 

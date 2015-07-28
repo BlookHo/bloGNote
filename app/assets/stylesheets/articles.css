@@ -29,6 +29,7 @@ thead th {
 tbody tr {
   background: #fff;
   color: #2c21a4;
+  cursor: pointer;
 }
 
 tbody tr:hover, tbody tr.alt:hover {
