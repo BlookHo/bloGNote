@@ -1,10 +1,9 @@
 <div class='container'>
 
   <h2>Dear Subscriber <%= @subscriber_name %>! bloGNote informs You:</h2>
-  <p> <strong>New article created:</strong> </p>
-  <p> To read new article: <%= link_to 'Read', "#{@link_to_new_article}"  %> </p>
+  <h4> <strong>New article created!</strong>  To read new article - go to this link: <%= link_to 'Read', "#{@link_to_new_article}" %> </h4>
   <br/>
-  <p> To unsubscribe from bloGNote emails: <%= link_to 'Unsubscribe',"#{@link_to_unsubscribe}" %> </p>
+  <p> To unsubscribe from bloGNote emails - go to this link: <%= link_to 'Unsubscribe',"#{@link_to_unsubscribe}" %> </p>
   <p> Delivering time: <%= @current_time.to_s(:short) %></p>
 
 </div>

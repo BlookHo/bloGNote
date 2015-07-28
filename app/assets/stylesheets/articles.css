@@ -15,7 +15,7 @@ table{
 thead th {
   font: bold 11px "Trebuchet MS", Verdana, Arial, Helvetica,
     sans-serif;
-  color: #a74a45;
+  color: #a72434;
   border-right: 1px solid #C1DAD7;
   border-bottom: 1px solid #C1DAD7;
   border-top: 1px solid #C1DAD7;
@@ -28,7 +28,7 @@ thead th {
 
 tbody tr {
   background: #fff;
-  color: #4077a4;
+  color: #2c21a4;
 }
 
 tbody tr:hover, tbody tr.alt:hover {
@@ -50,4 +50,23 @@ td {
   border-right: 1px solid #C1DAD7;
   border-bottom: 1px solid #C1DAD7;
   padding: 6px 6px 6px 12px;
+}
+
+strong {
+    background: #F5FAFA;
+    color: #8931b4;
+}
+
+
+h5 {
+    background: #F5FAFA;
+    color: #8931b4;
+}
+
+
+comment {
+    background: #faffff;
+    color: #4a47b4;
+    font-size:24px;
+    font-weight:bold;
 }
