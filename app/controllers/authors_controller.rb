@@ -23,7 +23,6 @@ class AuthorsController < ApplicationController
   # GET /authors/1
   # GET /authors/1.json
   def show
-    # logger.info "In Authors.show:  @author.name = #{@author.name} "
   end
 
   # GET /authors/new
@@ -42,7 +41,9 @@ class AuthorsController < ApplicationController
 
     respond_to do |format|
       if @author.save!
-        format.html { redirect_to @author, notice: 'Author was successfully created.' }
+        auto_login(@author)
+
+        format.html { redirect_to articles_path, notice: 'New Author created. Welcome to bloGNote' }
         format.json { render :show, status: :created, location: @author }
       else
         format.html { render :new }
