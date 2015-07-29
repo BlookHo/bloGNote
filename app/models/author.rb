@@ -2,6 +2,8 @@ class Author < ActiveRecord::Base
 
   authenticates_with_sorcery!
 
+  has_many :articles
+
   validates_confirmation_of :password, message: "should match confirmation", if: :password
   validates_presence_of :name, :message => "Have to be in Author"
 
