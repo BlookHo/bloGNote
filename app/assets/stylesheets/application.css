@@ -17,16 +17,12 @@
  *= require layout
  *= require global
  *= require flash
- *= require typo
  *= require buttons
- *= require header
  *= require libs/bootstrap/bootstrap.css
  *= require libs/bootstrap/bootstrap-customize.css.scss
  *= require articles
- *= require authors
- *= require comments
- *= require welcome
  *= require_tree .
 
 
  */
+

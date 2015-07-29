@@ -23,11 +23,6 @@ en:
   hello: "Hello world"
   views:
     pagination:
-#      previous: "&lt; Prev."
-#      next: "Next. &gt;"
-#      truncate: "..."
-#      last: "Last."
-#      first: "First."
       first: "&laquo; First"
       last: "Last &raquo;"
       previous: "&lsaquo; Prev"
@@ -36,9 +31,3 @@ en:
   recaptcha:
     errors:
       incorrect-captcha-sol: 'Captcha error. Try again!'
-
-#  time:
-#    formats:
-#      short_datetime: %B %d, %Y
-#      long_datetime:  %B %d, %Y, at %r
-#      hammer_datetime: STOP! %B %d, %Y, is HAMMERTIME!

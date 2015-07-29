@@ -25,7 +25,7 @@ BloGNote::Application.configure do
   config.action_mailer.default_url_options = { :host => 'localhost', port: '3000' }
   config.action_mailer.delivery_method = :smtp
 
-  puts "In dev.rb:  [email_name] = #{Rails.application.secrets.emails[:dev_email_name].inspect}"
+  # puts "In dev.rb:  [email_name] = #{Rails.application.secrets.emails[:dev_email_name].inspect}"
 
   config.action_mailer.smtp_settings =
       {
@@ -33,7 +33,7 @@ BloGNote::Application.configure do
           :port                 => 587, #  # 587, 465, 25
           :enable_starttls_auto => true,
           :address              => "smtp.gmail.com",       ## CHANGE for Gmail
-          # :address => "smtp.yandex.ru",     ## for Yandex
+          # :address => "smtp.yandex.ru",                  ## for Yandex
           :domain               => 'localhost:3000',
           :user_name            => Rails.application.secrets.emails[:dev_email_name],
           :password             => Rails.application.secrets.emails[:dev_email_password],

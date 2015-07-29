@@ -40,7 +40,7 @@ class AuthorsController < ApplicationController
     @author = Author.new(author_params)
 
     respond_to do |format|
-      if @author.save!
+      if @author.save
         auto_login(@author)
 
         format.html { redirect_to articles_path, notice: 'New Author created. Welcome to bloGNote' }
