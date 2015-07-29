@@ -1,7 +1,11 @@
 class Subscriber < ActiveRecord::Base
 
-  # validations
-
+  validates_presence_of :name, :email,
+                        :message => "Have to be in Subscriber"
+  validates :email,
+            :presence => true,
+            :uniqueness => true,
+            :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, :on => :create
 
 
   # @note: Collect subscribers emails

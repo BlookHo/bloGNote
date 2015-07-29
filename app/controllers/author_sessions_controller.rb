@@ -12,8 +12,9 @@ class AuthorSessionsController < ApplicationController
         redirect_back_or_to(articles_path, notice: 'Logged in successfully.')
       end
     else
-      flash.now.alert = "Login failed."
-      render action: :new
+      # flash.now.alert = "Login failed."
+      @notice = "Login failed. Repeat"
+      render action: :new#, notice: 'Repeat login.'
     end
   end
 

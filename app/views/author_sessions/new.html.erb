@@ -1,3 +1,6 @@
+<!--<p id="notice"><%= @notice %></p>-->
+
+
 <h1>Login</h1>
 
 <%= form_tag author_sessions_path, method: :post do %>
@@ -18,4 +21,8 @@
 <br/>
 
 <%= link_to 'Home page', welcome_path, class: [:sbtn, :btn] %>
-
+<% unless logged_in? %>
+    <p id="notice"><%= @notice %></p>
+<% else %>
+    <p id="notice"><%=  %></p>
+<% end %>

@@ -49,3 +49,11 @@ Goto Login and enter following:
 
 Submit -> you will enter Admin panel. In Admin panel - press Home to return to Welcome Blog page.
 
+
+## To reset all DB tables use seeds.rb
+
+    rake db:seed
+
+-------------------------------
+
+
