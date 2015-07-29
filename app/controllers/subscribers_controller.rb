@@ -1,5 +1,5 @@
 class SubscribersController < ApplicationController
-  before_action :set_subscriber, only: [:show,  :destroy] #:edit, :update, index
+  before_action :set_subscriber, only: [:show]
 
   # GET /subscribers/1
   # GET /subscribers/1.json
