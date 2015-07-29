@@ -10,7 +10,7 @@ class Subscriber < ActiveRecord::Base
 
   # @note: Collect subscribers emails
   def self.subscribers_emails
-    self.all.pluck(:email)
+    all.pluck(:email)
   end
 
   def self.subscriber?(email)

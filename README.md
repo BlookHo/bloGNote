@@ -7,7 +7,7 @@ The plan is to use many fantastic modern features, such as reactive front end, v
 ## Sending Emails - New Articles creation notifications
 --------------------------------
 ### Before sending emails asyncronous it is necessary to put on terminal:
- ::~/bloGNote$ bundle exec sidekiq
+ $ bundle exec sidekiq
 
  Sidekiq is already installed in this project.
  Ctrl C - to stop Sidekiq in Terminal
