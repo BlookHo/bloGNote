@@ -13,5 +13,13 @@ class Subscriber < ActiveRecord::Base
     self.all.pluck(:email)
   end
 
+  def self.subscriber?(email)
+    logger.info "In subscriber?:  email = #{email.inspect} "
+    where(email: email).exists?
+  end
+
+
+
+
 
 end

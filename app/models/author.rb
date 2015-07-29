@@ -10,6 +10,7 @@ class Author < ActiveRecord::Base
             :uniqueness => true,
             :format => {:with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, :on => :create
 
+  # @note: check existence of admin
   def self.admin_exists?
     Author.where(email: 'admin@admin.ad').exists?
   end
