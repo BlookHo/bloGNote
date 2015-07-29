@@ -56,4 +56,36 @@ Submit -> you will enter Admin panel. In Admin panel - press Home to return to W
 
 -------------------------------
 
+## Secrets.yml
+
+Fill it with following:
+
+
+development:
+  database:
+    :host: localhost
+    :name: Your_DB
+    :username: Your_DB_Owner
+    :password: password
+  pg_password: password
+  secret_key_base: Your code
+  emails:
+    :dev_email_name: 'Your Blog email'
+    :dev_email_password: 'Your Blog email password'
+
+
+
+test:
+  database:
+    :host: localhost
+    :name: Yor_DB
+    :username: Yor_DB_Owner
+    :password: password
+  :secret_key_base: Your code
+
+production:
+  secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
+  emails:
+    :email_name:
+    :email_password:
 
