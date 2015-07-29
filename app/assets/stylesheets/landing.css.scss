@@ -14,13 +14,10 @@
 //  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='weAllearth.jpg', sizingMethod='scale')";
 //}
 //
-
 body{
   font-family: 'Ubuntu', sans-serif;
   margin-right:10%;
 }
-
-
 h1{
   font-size:70px;
   font-weight:700;
@@ -29,7 +26,6 @@ h1{
   margin-bottom:24px;
   letter-spacing: -2px;
 }
-
 h2{
   font-size:28px;
   font-weigth:300px;
@@ -37,22 +33,18 @@ h2{
   margin-bottom:48px;
   letter-spacing: -1px;
 }
-
 .container{
   margin-left:20%;
   margin-top:10%;
 }
-
 a{
   font-size:16px;
   display:inline-block;
   float:left;
   color:#fff;
   cursor:pointer;
-
   &:hover{text-decoration:none;}
 }
-
 .btn{
   padding-left:40px;
   padding-right:40px;
@@ -60,7 +52,6 @@ a{
   line-height:52px;
   border:2px solid #fff;
 }
-
 .sbtn{
   border-radius:28px;
   text-decoration:none;
@@ -69,5 +60,4 @@ a{
     box-shadow:0 0 12px #b411f5;
   }
 }
-
 .lbtn{border:none;margin-left:40px;}

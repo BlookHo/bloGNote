@@ -10,7 +10,6 @@
   border-radius:4px;
   line-height:16px;
   cursor:pointer;
-
   background-color: #efefbc;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgb(239, 239, 188)), to(rgb(245, 243, 239)));
   background-image: -webkit-linear-gradient(top, rgb(239, 239, 188), rgb(245, 243, 239));
@@ -19,8 +18,6 @@
   background-image: -ms-linear-gradient(top, rgb(239, 239, 188), rgb(245, 243, 239));
   background-image: linear-gradient(top, rgb(239, 239, 188), rgb(245, 243, 239));
   filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,StartColorStr='#efefbc', EndColorStr='#f5f3ef');
-
-
   .close{
     top:5px;
     right:5px;
@@ -28,5 +25,4 @@
     float:right;
     color:#000;
   }
-
 }
