@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.describe Article, type: :model  do # , focus: true
 
   after {
+    # todo: DatabaseCleaner?
     Article.delete_all
     Article.reset_pk_sequence
   }
@@ -13,6 +14,7 @@ RSpec.describe Article, type: :model  do # , focus: true
       context '- valid article'   do  # , focus: true
         let(:good_article) {FactoryGirl.build(:article)}
         it '- 1 Saves a valid article' do
+          # todo: stdout?
           puts " Model Article validation "
           expect(good_article).to be_valid
         end

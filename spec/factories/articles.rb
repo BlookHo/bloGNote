@@ -1,5 +1,6 @@
 FactoryGirl.define do
 
+  # todo:  смысл присвоения случайных значений (в factory girl) полям данных?
   # validation of CORRECT
   factory :article,  class: Article   do
     author_id 3
