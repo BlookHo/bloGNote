@@ -20,7 +20,7 @@ Put line to file *mailer_config.rb*
 #### NOTE: your_blog_gmail_box - should be gmail.com
 
 Create Your own file app/config/secrets.yml.
-Put inthis file following data:
+Put in this file following data:
 
 development:
   database:

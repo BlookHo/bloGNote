@@ -35,8 +35,11 @@ BloGNote::Application.configure do
           :address              => "smtp.gmail.com",       ## CHANGE for Gmail
           # :address => "smtp.yandex.ru",                  ## for Yandex
           :domain               => 'localhost:3000',
-          :user_name            => Rails.application.secrets.emails[:dev_email_name],
-          :password             => Rails.application.secrets.emails[:dev_email_password],
+          # :user_name            => <%= Rails.application.secrets[:database][:host] %>
+          # :user_name            => Rails.application.secrets.emails[:dev_email_name],
+          # :password             => Rails.application.secrets.emails[:dev_email_password],
+          :user_name            => "dev_email_name",
+          :password             => "dev_email_password",
           :authentication       => 'plain',
           :openssl_verify_mode  => 'none' # ?
       }

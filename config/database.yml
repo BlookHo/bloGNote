@@ -14,29 +14,35 @@
 # Configure Using Gemfile
 # gem 'pg'
 #
-
-
-default: &default
-  host: <%= Rails.application.secrets[:database][:host] %>
+base: &base
   adapter: postgresql
   encoding: UTF8
-  database: <%= Rails.application.secrets[:database][:name] %>
-#  pool: 10
   reaping_frequency: 30
-  username: <%= Rails.application.secrets[:database][:username] %>
-  password: <%= Rails.application.secrets[:database][:password] %>
-#  port: 5432
-  pool: 5
+  #  username: experteese_admin
+  #  password: dmkv1219
   timeout: 5000
+  # For details on connection pooling, see rails configuration guide
+  # http://guides.rubyonrails.org/configuring.html#database-pooling
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+#  host: <%= Rails.application.secrets[:database][:host] %>
+#  database: <%= Rails.application.secrets[:database][:name] %>
+#  pool: 10
+#  username: <%= Rails.application.secrets[:database][:username] %>
+#  password: <%= Rails.application.secrets[:database][:password] %>
+#  port: 5432
 
-development: *default
+development:
+  <<: *base
+  database: blognote_development
+  username: blognote_admin
+  password: <%= Rails.application.secrets[:database][:password] %>
 
 
 #default: &default
 #  adapter: postgresql
 #  encoding: unicode
-  # For details on connection pooling, see rails configuration guide
-  # http://guides.rubyonrails.org/configuring.html#database-pooling
+# For details on connection pooling, see rails configuration guide
+# http://guides.rubyonrails.org/configuring.html#database-pooling
 #  pool: 5
 
 #development:
@@ -47,19 +53,19 @@ development: *default
   # To create additional roles in postgres see `$ createuser --help`.
   # When left blank, postgres will use the default role. This is
   # the same name as the operating system user that initialized the database.
-#  username: bloGNote
+  #  username: bloGNote
 
   # The password associated with the postgres role (username).
-#  password: <%= ENV["PG_PASSWORD"] %>
+  #  password: <%= ENV["PG_PASSWORD"] %>
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
   # domain sockets, so uncomment these lines.
-#  host: localhost
+  #  host: localhost
 
   # The TCP port the server listens on. Defaults to 5432.
   # If your server runs on a different port number, change accordingly.
-#  port: 5432
+  #  port: 5432
 
   # Schema search path. The server defaults to $user,public
   #schema_search_path: myapp,sharedapp,public
@@ -77,7 +83,11 @@ development: *default
 #  <<: *default
 #  database: bloGNote_test
 
-test: *default
+test:
+  <<: *base
+  database: blognote_test
+  username: blognote_admin
+  password: <%= Rails.application.secrets[:database][:password] %>
 
 
 # As with config/secrets.yml, you never want to store sensitive information,
@@ -105,4 +115,9 @@ test: *default
 #  database: bloGNote_production
 #  username: bloGNote
 #  password: <%= ENV['BLOGNOTE_DATABASE_PASSWORD'] %>
-production: *default
+
+production:
+  <<: *base
+  database: blognote_production
+  username: blognote_admin
+  password: <%= Rails.application.secrets[:database][:password] %>
