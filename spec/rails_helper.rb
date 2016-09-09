@@ -7,8 +7,8 @@ require 'spec_helper'
 require 'rspec/rails'
 # Add additional requires below this line. Rails is not loaded until this point!
 require File.expand_path("../../config/environment", __FILE__)
-require 'capybara/rspec'
-require 'capybara-screenshot/rspec'
+# require 'capybara/rspec'
+# require 'capybara-screenshot/rspec'
 require 'factory_girl'
 require 'database_cleaner'
 
@@ -57,13 +57,13 @@ RSpec.configure do |config|
   config.infer_spec_type_from_file_location!
   config.include FactoryGirl::Syntax::Methods
 
-  Capybara.javascript_driver = :webkit
-  # Capybara.default_wait_time = 2000
-  config.include Angular::DSL
-
-  Capybara::Screenshot.webkit_options = { width: 1280, height: 1000 }
-  # Keep only the screenshots generated from the last failing test suite
-  Capybara::Screenshot.prune_strategy = :keep_last_run
+  # Capybara.javascript_driver = :webkit
+  # # Capybara.default_wait_time = 2000
+  # config.include Angular::DSL
+  #
+  # Capybara::Screenshot.webkit_options = { width: 1280, height: 1000 }
+  # # Keep only the screenshots generated from the last failing test suite
+  # Capybara::Screenshot.prune_strategy = :keep_last_run
 
 
   # @source http://devblog.avdi.org/2012/08/31/configuring-database_cleaner-with-rails-rspec-capybara-and-selenium/

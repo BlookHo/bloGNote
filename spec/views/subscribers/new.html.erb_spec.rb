@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "subscribers/new", type: :view do
   before(:each) do
     assign(:subscriber, Subscriber.new(
-      :name => "MyString",
-      :email => "MyString"
+      :name => "Name",
+      :email => "Email@ee.ee"
     ))
   end
 

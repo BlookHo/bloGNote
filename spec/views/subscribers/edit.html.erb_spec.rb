@@ -3,8 +3,8 @@ require 'rails_helper'
 RSpec.describe "subscribers/edit", type: :view do
   before(:each) do
     @subscriber = assign(:subscriber, Subscriber.create!(
-      :name => "MyString",
-      :email => "MyString"
+      :name => "Name",
+      :email => "Email@ee.ee"
     ))
   end
 

@@ -25,7 +25,6 @@ base: &base
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 #  host: <%= Rails.application.secrets[:database][:host] %>
-#  database: <%= Rails.application.secrets[:database][:name] %>
 #  pool: 10
 #  username: <%= Rails.application.secrets[:database][:username] %>
 #  password: <%= Rails.application.secrets[:database][:password] %>
@@ -34,6 +33,7 @@ base: &base
 development:
   <<: *base
   database: blognote_development
+#  database: <%= Rails.application.secrets[:database][:name] %>
   username: blognote_admin
   password: <%= Rails.application.secrets[:database][:password] %>
 
@@ -85,6 +85,7 @@ development:
 
 test:
   <<: *base
+#  database: <%= Rails.application.secrets[:database][:name] %>
   database: blognote_test
   username: blognote_admin
   password: <%= Rails.application.secrets[:database][:password] %>
@@ -118,6 +119,7 @@ test:
 
 production:
   <<: *base
+#  database: <%= Rails.application.secrets[:database][:name] %>
   database: blognote_production
   username: blognote_admin
   password: <%= Rails.application.secrets[:database][:password] %>

@@ -107,14 +107,14 @@ group :test do
   # gem 'fuubar'
 
   # Features tests for Rspec
-  # gem 'capybara-webkit', '~> 1.11.1'
+  # gem 'capybara-webkit'#, '~> 1.11.1'
   # gem 'capybara'
   # gem 'capybara-ng'
 
   # Webkit driver for js feature tests
   # $ brew install qt
   # $ sudo apt-get install qt4-dev-tools libqt4-dev libqt4-core libqt4-gui
- # gem 'capybara-webkit'
+  # gem 'capybara-webkit'
 
   # To open test pages when save_and_open_page method is called
   # gem 'launchy'
@@ -123,10 +123,10 @@ group :test do
   gem "factory_girl_rails"  # 4.7.0
 
   # Enables screenshots creation during tests
-#  gem 'capybara-screenshot'
+  # gem 'capybara-screenshot'
 
   # Auto cleans test db after each test run
-  # gem 'database_cleaner'
+  gem 'database_cleaner'
 
   # Faker, a port of Data::Faker from Perl,
   # is used to easily generate fake data: names, addresses, phone numbers, etc.

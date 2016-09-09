@@ -1,11 +1,12 @@
 require 'rails_helper'
+require 'database_cleaner'
+
+DatabaseCleaner.strategy = :truncation
 
 RSpec.describe Article, type: :model  do # , focus: true
 
   after {
-    # todo: DatabaseCleaner?
-    Article.delete_all
-    Article.reset_pk_sequence
+    DatabaseCleaner.clean
   }
 
   describe '- Validation' do
