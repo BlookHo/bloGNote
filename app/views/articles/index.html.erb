@@ -14,6 +14,7 @@
       <th>Author</th>
       <th>Title</th>
       <th>Body</th>
+      <th>Tags</th>
     </tr>
   </thead>
 
@@ -24,8 +25,9 @@
           <tr data-link="<%= article_path(article)%>">
             <td><%= Author.find(article.author_id).name %></td>
             <td><%= article.title %></td>
-            <td><%= article.body.slice(0,100) %></td>
-            <!--<td><%= article.author_id %></td>-->
+            <td><%= article.body.slice(0,50) %></td>
+            <!--<td><%= article.tag_list %></td>-->
+            <td><%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></td>
             <!--<td><%= link_to 'Show', article %></td>-->
           </tr>
       <% end %>

@@ -30,7 +30,8 @@ Rails.application.routes.draw do
   get 'welcome/see_articles'
 
   get 'articles/index'
-
+  get 'tags/:tag', to: 'articles#index', as: :tag
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
