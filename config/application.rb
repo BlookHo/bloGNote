@@ -68,9 +68,6 @@ module BloGNote
     # Не показывать логи assets в development
     config.quiet_assets = true
 
-    # Do not swallow errors in after_commit/after_rollback callbacks.
-    config.active_record.raise_in_transactional_callbacks = true
-
     # роуты для ошибок
     config.exceptions_app = self.routes
   end

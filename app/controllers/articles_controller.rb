@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     # @articles = Article.all
-    @articles = Article.all.page(params[:page]).per(12)
+    @articles = Article.all.page(params[:page]).per(5)
     @current_user = current_user
   end
 

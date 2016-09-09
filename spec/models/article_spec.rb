@@ -25,6 +25,7 @@ RSpec.describe Article, type: :model  do # , focus: true
         end
       end
 
+      
       context '- invalid article'  do  # , focus: true
 
         let(:bad_article_uncorrect_author_id) {FactoryGirl.build(:article, :uncorrect_author_id)}

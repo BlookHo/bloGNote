@@ -42,6 +42,17 @@ Email box 'your_blog_gmail_box' - you will use as host email box of this app on 
 ## To enter Admin panel
 -----------------------------------
 
+## Create ADMIN Author or rake db:seed - by your choice
+## By default: Author.create_admin
+
+
+## To create User = Admin and to reset all DB tables use seeds.rb.  You may run: 
+
+    rake db:seed
+
+-------------------------------
+
+
 Goto Login and enter following:
 
 - email: **admin@admin.ad**
@@ -50,11 +61,6 @@ Goto Login and enter following:
 Submit -> you will enter Admin panel. In Admin panel - press Home to return to Welcome Blog page.
 
 
-## To reset all DB tables use seeds.rb
-
-    rake db:seed
-
--------------------------------
 
 ## Secrets.yml
 
