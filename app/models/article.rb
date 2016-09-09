@@ -1,11 +1,12 @@
 class Article < ActiveRecord::Base
   require 'redcarpet'
 
+  # attr_accessor :tag_list
+  acts_as_taggable
+  
   has_many :comments
   belongs_to :author
-  # todo: зависимости связанных ассоциаций. После удаления автора могут остаться комментарии с id, которого уже нет,
-  # todo: то есть потенциально - попытка обращения к не существующим данным?
-
+  
   validates_presence_of :author_id, :body,
                         :message => "Have to be in Article"
   # todo: значения по умолчанию в сообщения об ошибках переписаны прямо в модели (зачем?),

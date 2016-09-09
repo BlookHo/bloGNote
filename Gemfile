@@ -146,18 +146,21 @@ gem 'dalli', '~> 2.7.4'
 
 # Markdown
 gem 'redcarpet', github: 'vmg/redcarpet'
-# gem 'rouge'
+gem 'rouge'
 
 # authentification
 gem 'sorcery'
 
 # Asynchronous email delivery
-# gem 'sidekiq'
+gem 'sidekiq'
 
 # admin panel
 # for Rails 5.0
 gem 'remotipart', github: 'mshibuya/remotipart'
 gem 'rails_admin', '>= 1.0.0.rc'
+
+#tags_cloud
+gem 'acts-as-taggable-on', '~> 4.0'
 
 group :production do
   # For Heroku deployment

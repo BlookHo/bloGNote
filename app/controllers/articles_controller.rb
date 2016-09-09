@@ -7,9 +7,28 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     # @articles = Article.all
-    @articles = Article.all.page(params[:page]).per(5)
+    if params[:tag]
+      # logger.info "In ArticlesController#index: params[:tag] = #{params[:tag].inspect} "
+      # logger.info " #{Article.tagged_with(params[:tag]).inspect} "
+
+      @articles = Article.tagged_with(params[:tag] ).page(params[:page]).per(5)
+
+    else
+      # @articles = Article.all
+      @articles = Article.all.page(params[:page]).per(5)
+    end
+    # @articles = Article.all.page(params[:page]).per(5)
     @current_user = current_user
   end
+
+  def tag_cloud
+    @tags = Article.tag_counts_on(:tags)
+  end
+  
+  # <!--<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>-->
+  # <!--<%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>-->
+  # <!--<% end %>-->
+
 
   # GET /articles/1
   # GET /articles/1.json
@@ -90,7 +109,7 @@ class ArticlesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def article_params
-      params.require(:article).permit(:author_id, :title, :body)
+      params.require(:article).permit(:author_id, :title, :body, :tag_list)
     end
 
 end
