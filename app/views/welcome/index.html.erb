@@ -1,11 +1,22 @@
 <div class='container'>
   <h1>Join my designing and recreative blog!</h1>
-  <h2>Share your ideas and explore other variants</h2>
-  <h2>Our mission - to unite people all over the world</h2>
+  <h2>Share your ideas and explore other variants. Our mission - to unite people all over the world!</h2>
+
+  <div id="tag_cloud">
+    <% tag_cloud Article.tag_counts, %w{s m l} do |tag, css_class| %>
+        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+        <%= %>
+    <% end %>
+
+  </div>
+
+
   <% if logged_in? %>
-      <%= "Logged in as #{current_user.email}" %>
-      <%= link_to 'Read articles', articles_path , class: [:sbtn, :btn]  %>
-      <%= link_to "Logout", logout_path, class: [:sbtn, :btn] %>
+      <div class="logged">
+        <%= "Logged in as #{current_user.email}" %>
+        <%= link_to 'Read articles', articles_path , class: [:sbtn, :btn]  %>
+        <%= link_to "Logout", logout_path, class: [:sbtn, :btn] %>
+      </div>
 
   <% else %>
       <!--Logged out-->
@@ -14,16 +25,7 @@
       <%= link_to 'Read articles', articles_path , class: [:sbtn, :btn]  %>
 <% end %>
 
-  <!--<%= link_to 'Read all articles', articles_path , class: [:sbtn, :btn]  %>-->
 
 </div>
-
-<div id="tag_cloud">
-  <% tag_cloud Article.tag_counts, %w{s m l} do |tag, css_class| %>
-      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-  <% end %>
-
-</div>
-
 
 

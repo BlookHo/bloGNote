@@ -75,6 +75,8 @@ comment {
 #tag_cloud {
     width: 400px;
     line-height: 1.6em;
+    position: relative;
+    left: 75%;
 }
 .s {
     font-size: 0.8em;
