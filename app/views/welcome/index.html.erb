@@ -1,15 +1,15 @@
 <div class='container'>
   <h1>Join my designing and recreative blog!</h1>
-  <h2>Share your ideas and explore other variants. Our mission - to unite people all over the world!</h2>
+  <h2>Share your ideas and explore others. Our mission - to unite people all over the world!</h2>
 
   <div id="tag_cloud">
     <% tag_cloud Article.tag_counts, %w{s m l} do |tag, css_class| %>
         <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-        <%= %>
+        <!--<p></p>-->
     <% end %>
-
+    <br/>
+    <br/>
   </div>
-
 
   <% if logged_in? %>
       <div class="logged">

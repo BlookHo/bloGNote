@@ -76,7 +76,9 @@ comment {
     width: 400px;
     line-height: 1.6em;
     position: relative;
-    left: 75%;
+    left: 65%;
+    min-height: 100px;
+
 }
 .s {
     font-size: 0.8em;
