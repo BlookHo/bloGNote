@@ -64,7 +64,7 @@ class ArticlesController < ApplicationController
     Subscriber.subscribers_emails.each do |one_email|
       logger.info "In ArticlesController#send_emails: article_id = #{article_id} "
       logger.info "In ArticlesController#send_emails: one_email = #{one_email} "
-      SubscriberMailer.delay.new_article_email(one_email, article_id) # with Sidekiq
+      # SubscriberMailer.delay.new_article_email(one_email, article_id) # with Sidekiq
       SubscriberMailer.new_article_email(one_email, article_id).deliver!#_now - without Sidekiq
     end
   end
