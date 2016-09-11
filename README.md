@@ -7,6 +7,12 @@ The plan is to use many fantastic modern features, such as reactive front end, v
 ## Sending Emails - New Articles creation notifications
 --------------------------------
 ### Before sending emails asyncronous it is necessary to put on terminal:
+ Install redis server to use sidekiq
+ 
+ $ sudo apt install redis-server
+
+ Run sidekiq
+
  $ bundle exec sidekiq
 
  Sidekiq is already installed in this project.
@@ -14,12 +20,17 @@ The plan is to use many fantastic modern features, such as reactive front end, v
 
 ### To config mailer:
 
-Put line to file *mailer_config.rb*
+Put directly line to file *mailer_config.rb*
 - BLOG_EMAIL = 'your_blog_gmail_box'
 
 #### NOTE: your_blog_gmail_box - should be gmail.com
 
-Create Your own file app/config/secrets.yml.
+OR
+
+Put line to file *mailer_config.rb*
+BLOG_EMAIL = Rails.application.secrets.emails[:dev_email_name]
+
+To have this - create Your own file app/config/secrets.yml.
 Put in this file following data:
 
 development:

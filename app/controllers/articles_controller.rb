@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_filter :logged_in?, :except => [ :index, :show ]
+  before_action :logged_in?, :except => [ :index, :show ]
 
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
@@ -8,16 +8,11 @@ class ArticlesController < ApplicationController
   def index
     # @articles = Article.all
     if params[:tag]
-      # logger.info "In ArticlesController#index: params[:tag] = #{params[:tag].inspect} "
       # logger.info " #{Article.tagged_with(params[:tag]).inspect} "
-
       @articles = Article.tagged_with(params[:tag] ).page(params[:page]).per(5)
-
     else
-      # @articles = Article.all
       @articles = Article.all.page(params[:page]).per(5)
     end
-    # @articles = Article.all.page(params[:page]).per(5)
     @current_user = current_user
   end
 
@@ -25,10 +20,6 @@ class ArticlesController < ApplicationController
     @tags = Article.tag_counts_on(:tags)
   end
   
-  # <!--<% tag_cloud(@tags, %w(css1 css2 css3 css4)) do |tag, css_class| %>-->
-  # <!--<%= link_to tag.name, { :action => :tag, :id => tag.name }, :class => css_class %>-->
-  # <!--<% end %>-->
-
 
   # GET /articles/1
   # GET /articles/1.json
@@ -71,8 +62,10 @@ class ArticlesController < ApplicationController
   # @note: Send emails to all subscribers - via Sidekiq
   def send_emails(article_id)
     Subscriber.subscribers_emails.each do |one_email|
-       SubscriberMailer.delay.new_article_email(one_email, article_id) # with Sidekiq
-      # SubscriberMailer.new_article_email(one_email, article_id).deliver!#_now - without Sidekiq
+      logger.info "In ArticlesController#send_emails: article_id = #{article_id} "
+      logger.info "In ArticlesController#send_emails: one_email = #{one_email} "
+      SubscriberMailer.delay.new_article_email(one_email, article_id) # with Sidekiq
+      SubscriberMailer.new_article_email(one_email, article_id).deliver!#_now - without Sidekiq
     end
   end
 

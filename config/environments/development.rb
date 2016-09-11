@@ -26,20 +26,21 @@ BloGNote::Application.configure do
   config.action_mailer.delivery_method = :smtp
 
   # puts "In dev.rb:  [email_name] = #{Rails.application.secrets.emails[:dev_email_name].inspect}"
+  # puts "In dev.rb:  [email_name] = #{Rails.application.secrets.emails[:dev_email_password].inspect}"
 
   config.action_mailer.smtp_settings =
       {
           # :port => 25, # 25 -Yandex; 1025 - mailcatcher
           :port                 => 587, #  # 587, 465, 25
           :enable_starttls_auto => true,
-          :address              => "smtp.gmail.com",       ## CHANGE for Gmail
+          :address              => "smtp.gmail.com",       ## for Gmail
           # :address => "smtp.yandex.ru",                  ## for Yandex
           :domain               => 'localhost:3000',
           # :user_name            => <%= Rails.application.secrets[:database][:host] %>
-          # :user_name            => Rails.application.secrets.emails[:dev_email_name],
-          # :password             => Rails.application.secrets.emails[:dev_email_password],
-          :user_name            => "dev_email_name",
-          :password             => "dev_email_password",
+          :user_name            => Rails.application.secrets.emails[:dev_email_name],
+          :password             => Rails.application.secrets.emails[:dev_email_password],
+          # :user_name            => "dev_email_name",
+          # :password             => "dev_email_password",
           :authentication       => 'plain',
           :openssl_verify_mode  => 'none' # ?
       }
